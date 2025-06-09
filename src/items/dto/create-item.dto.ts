@@ -6,4 +6,7 @@ export class CreateItemDto {
 
   @ApiProperty({ default: true })
   public: boolean;
+
+  @ApiProperty({ example: 1, description: 'ID of the listing to associate' })
+  listingId: number;
 }
