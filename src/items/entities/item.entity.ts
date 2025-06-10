@@ -1,5 +1,5 @@
+import { Listing } from "src/listing/entities/listing.entity";
 import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Listing } from "./listing.entity";
 
 @Entity()
 export class Item {
@@ -13,7 +13,7 @@ export class Item {
     public:boolean;
 
     @OneToOne(() => Listing)
-    @JoinColumn() // 👈 Foreign key (listingId) will be in Item table
+    @JoinColumn({name:'ListId'}) // 👈 Foreign key (listingId) will be in Item table
     listing: Listing;
 
     constructor(item?:Partial<Item>) {  // Use Partial<Item> to allow partial updates matching the properties of Item without requiring all properties to be present.
